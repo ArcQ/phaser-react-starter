@@ -6,15 +6,20 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'content', { preload: preload, create: create }); // eslint-disable-line
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'content', { preload: preload, create: create, render: render }); // eslint-disable-line
 
     function preload() {
-      game.load.image('logo', 'phaser.png');
+      game.load.image('img', 'assets/phaser.png');
     }
 
     function create() {
-      const logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
-      logo.anchor.setTo(0.5, 0.5);
+      const img = game.add.sprite(game.world.centerX, game.world.centerY, 'img');
+      img.anchor.setTo(0.5, 0.5);
+      game.time.advancedTiming = true;
+    }
+
+    function render() {
+      game.debug.text(game.time.fps, 2, 14, '#00ff00');
     }
   }
   render() {
