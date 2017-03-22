@@ -1,19 +1,28 @@
+import 'p2';
 import Phaser from 'phaser';
 
-function run() {
-  const game = new Phaser.Game(
-    '100%',
-    '100%',
-    Phaser.AUTO,
-    'content', {
-      preload: () => game.load.image('img', 'assets/phaser.png'),
-      create: () => {
-        const img = game.add.sprite(game.world.centerX, game.world.centerY, 'img');
-        img.anchor.setTo(0.5, 0.5);
-        game.time.advancedTiming = true;
-      },
-      render: () => game.debug.text(game.time.fps, 2, 14, '#00ff00'),
-    });
+import BootState from './example/states/Boot';
+import SplashState from './example/states/Splash';
+import GameState from './example/states/Game';
+
+import config from './config';
+
+class Game extends Phaser.Game {
+  constructor() {
+    const docElement = document.documentElement;
+    const width =
+      docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth;
+    const height =
+      docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight;
+
+    super(width, height, Phaser.CANVAS, 'game', null);
+
+    this.state.add('Boot', BootState, false);
+    this.state.add('Splash', SplashState, false);
+    this.state.add('Game', GameState, false);
+
+    this.state.start('Boot');
+  }
 }
 
-export default run;
+export default Game;
