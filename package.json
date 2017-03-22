@@ -3,18 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "p2": "^0.7.1",
+    "phaser-ce": "^2.7.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
   "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-import-resolver-node": "^0.3.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^6.10.3",
     "react-scripts": "0.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_PATH=./src react-scripts start",
     "lint": ".eslint/node_modules/.bin/eslint src",
     "lint:fix": ".eslint/node_modules/.bin/eslint src --fix",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "build": "NODE_PATH=src react-scripts build",
+    "test": "NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }
