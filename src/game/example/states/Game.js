@@ -4,14 +4,22 @@ import { runIfDev } from 'game/utils';
 import Mushroom from '../sprites/Mushroom';
 
 function addMushroom(game, x, y) {
-  const mushroom = new Mushroom({ game, asset: 'mushroom', x, y });
+  const mushroom = new Mushroom({ game, asset: 'key', x, y });
   game.add.existing(mushroom);
   return mushroom;
 }
 
+let count = 0;
+
 export default class extends Phaser.State {
   init() {}
-  preload() {}
+  preload() {
+    const image = new Image();
+    image.src = 'assets/images/Mushroom.svg';
+    const imgsvg = this.game.make.bitmapData(100, 100);
+    imgsvg.ctx.drawImage(image, 0, 0, 100, 100);
+    this.game.cache.addBitmapData('key', imgsvg);
+  }
 
   create() {
     const bannerText = 'Phaser + ES6 + Webpack';
@@ -29,6 +37,8 @@ export default class extends Phaser.State {
   update() {
     if (this.input.activePointer.isDown) {
       addMushroom(this.game, this.input.activePointer.x, this.input.activePointer.y);
+      count = count + 1;
+      console.log(count);
     }
   }
 
