@@ -15,6 +15,7 @@ module.exports = {
     'browser' : true
   },
   'globals': {
+    'createjs': true,
     'Phaser': true,
     'PIXI': true,
     'p2': true,

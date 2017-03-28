@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import Game from 'game';
+import startGame from 'game';
 import logo from './logo.svg';
 import './app.css';
 
-window.game = new Game();
+startGame();
 
 class App extends Component {
+  componentDidMount() {
+    console.log('startGame called');
+    startGame();
+  }
+  shouldComponentUpdate() {
+    return false;
+  }
   render() {
     return (
       <div className='App'>
@@ -13,7 +20,9 @@ class App extends Component {
           <img src={logo} className='App-logo' alt='logo' />
           <h2>Welcome to React</h2>
         </div>
-        <div id='game' />
+        <canvas id='game' width='500' height='300'>
+          Your browser is not a supported version, please upgrade to the latest chrome browser.
+        </canvas>
         <p className='App-intro'>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>

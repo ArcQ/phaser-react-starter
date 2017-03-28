@@ -1,10 +1,8 @@
 {
-  "name": "react-ui",
+  "name": "createjs-react-starter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "p2": "^0.7.1",
-    "phaser-ce": "^2.7.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "redux": "^3.6.0"
