@@ -1,10 +1,12 @@
 /* globals __DEV__ */
 import Phaser from 'phaser';
 import { runIfDev } from 'game/utils';
-import Mushroom from '../sprites/Mushroom';
+// import Mushroom from '../sprites/Mushroom';
 
 function addMushroom(game, x, y) {
-  const mushroom = new Mushroom({ game, asset: 'key', x, y });
+  // const mushroom = new Mushroom({ game, asset: 'key', x, y });
+  const mushroom = new Phaser.Sprite(game, x, y, 'mushroom');
+  console.log(mushroom);
   game.add.existing(mushroom);
   return mushroom;
 }

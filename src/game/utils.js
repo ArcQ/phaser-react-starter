@@ -4,6 +4,8 @@ export function runIfDev(func) {
   }
 }
 
-export default function (objects) {
+export function centerGameObjects(objects) {
   return objects.forEach(object => object.anchor.setTo(0.5));
 }
+
+export default {};

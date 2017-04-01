@@ -1,11 +1,11 @@
 import 'p2';
 import Phaser from 'phaser';
 
+import config from 'config.json';
 import BootState from './example/states/Boot';
 import SplashState from './example/states/Splash';
 import GameState from './example/states/Game';
 
-import config from './config';
 
 class Game extends Phaser.Game {
   constructor() {
